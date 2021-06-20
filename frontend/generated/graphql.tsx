@@ -21,6 +21,7 @@ export type RequireFields<T, K extends keyof T> = {
 } &
   { [P in K]-?: NonNullable<T[P]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -1963,15 +1964,17 @@ export function useInsertFeedMutation(
     InsertFeedMutationVariables
   >
 ) {
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useMutation<InsertFeedMutation, InsertFeedMutationVariables>(
     InsertFeedDocument,
-    baseOptions
+    options
   );
 }
 export type InsertFeedMutationHookResult = ReturnType<
   typeof useInsertFeedMutation
 >;
-export type InsertFeedMutationResult = Apollo.MutationResult<InsertFeedMutation>;
+export type InsertFeedMutationResult =
+  Apollo.MutationResult<InsertFeedMutation>;
 export type InsertFeedMutationOptions = Apollo.BaseMutationOptions<
   InsertFeedMutation,
   InsertFeedMutationVariables
@@ -2065,15 +2068,17 @@ export function useUpdateUserMutation(
     UpdateUserMutationVariables
   >
 ) {
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(
     UpdateUserDocument,
-    baseOptions
+    options
   );
 }
 export type UpdateUserMutationHookResult = ReturnType<
   typeof useUpdateUserMutation
 >;
-export type UpdateUserMutationResult = Apollo.MutationResult<UpdateUserMutation>;
+export type UpdateUserMutationResult =
+  Apollo.MutationResult<UpdateUserMutation>;
 export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<
   UpdateUserMutation,
   UpdateUserMutationVariables
@@ -2154,9 +2159,10 @@ export function withFetchUser<
 export function useFetchUserQuery(
   baseOptions: Apollo.QueryHookOptions<FetchUserQuery, FetchUserQueryVariables>
 ) {
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<FetchUserQuery, FetchUserQueryVariables>(
     FetchUserDocument,
-    baseOptions
+    options
   );
 }
 export function useFetchUserLazyQuery(
@@ -2165,9 +2171,10 @@ export function useFetchUserLazyQuery(
     FetchUserQueryVariables
   >
 ) {
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<FetchUserQuery, FetchUserQueryVariables>(
     FetchUserDocument,
-    baseOptions
+    options
   );
 }
 export type FetchUserQueryHookResult = ReturnType<typeof useFetchUserQuery>;
@@ -2264,15 +2271,17 @@ export function useFetchFeedsSubscription(
     FetchFeedsSubscriptionVariables
   >
 ) {
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useSubscription<
     FetchFeedsSubscription,
     FetchFeedsSubscriptionVariables
-  >(FetchFeedsDocument, baseOptions);
+  >(FetchFeedsDocument, options);
 }
 export type FetchFeedsSubscriptionHookResult = ReturnType<
   typeof useFetchFeedsSubscription
 >;
-export type FetchFeedsSubscriptionResult = Apollo.SubscriptionResult<FetchFeedsSubscription>;
+export type FetchFeedsSubscriptionResult =
+  Apollo.SubscriptionResult<FetchFeedsSubscription>;
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
